@@ -4,20 +4,23 @@
   display: flex;
   gap: 1rem;
   transition: 300ms;
+  top: 50%;
 }
 
 .filterOpened {
-  transform: translateX(0);
+  transform: translate(0, -50%);
 }
 
 .filterClosed {
-  transform: translateX(-100%);
+  transform: translate(-100%, -50%);
 }
 
 select {
   font-size: 0.9rem;
   border: 1px solid #eeeeee;
   background-color: white;
+  padding: 0.3rem;
+  border-radius: 5px;
 }
 
 input {

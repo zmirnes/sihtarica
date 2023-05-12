@@ -15,7 +15,7 @@ const Menu = () => {
         <img src={logo} alt="Logo" className={classes.logo} />
       </div>
       <div className={classes.menuContainer}>
-        <NavLinks />
+        <NavLinks setShowMenu={setShowMenu} />
       </div>
       <img src={menu} alt="Menu" className={classes.openMenu} onClick={() => setShowMenu(true)} />
     </div>

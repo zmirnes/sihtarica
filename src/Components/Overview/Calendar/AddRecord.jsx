@@ -36,8 +36,12 @@ const AddRecord = ({ showModal, setShowModal, day, month, year, tags, userHours 
         </select>
       </div>
       <div className={classes.actions}>
-        <button onClick={onSubmit}>OK</button>
-        <button onClick={() => setShowModal(false)}>X</button>
+        <button className={classes.submitButton} onClick={onSubmit}>
+          OK
+        </button>
+        <button className={classes.cancelButton} onClick={() => setShowModal(false)}>
+          X
+        </button>
       </div>
     </div>
   );

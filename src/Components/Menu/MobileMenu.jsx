@@ -17,7 +17,7 @@ const MobileMenu = ({ setShowMenu, showMenu }) => {
         </div>
         <img src={closeMenu} alt="Close menu" className={classes.closeMenuBtn} onClick={closeMenuHandler} />
       </div>
-      <NavLinks />
+      <NavLinks setShowMenu={setShowMenu} />
     </div>
   );
 };
