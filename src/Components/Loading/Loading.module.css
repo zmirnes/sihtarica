@@ -1,0 +1,16 @@
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingIcon {
+  width: 2rem;
+  animation: loading 1s ease-in-out infinite;
+}
+
+@keyframes loading {
+  100% {
+    transform: rotate(360deg);
+  }
+}

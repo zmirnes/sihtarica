@@ -1,0 +1,83 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+  text-align: center;
+  width: 40%;
+}
+
+.formHeading {
+  display: flex;
+  flex-direction: column;
+}
+
+.formTitle {
+  font-size: 1.5rem;
+}
+
+.formSubtitle {
+  color: #4e5365;
+  font-size: 0.9rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.formError {
+  color: red;
+}
+
+.inputField {
+  padding: 0.3rem;
+  width: 100%;
+  border-radius: 0;
+  outline: none;
+  border: 1px solid #3a7bd5;
+  transition: 100ms;
+  font-size: 1rem;
+}
+
+.inputField:focus {
+  border-left: 2px solid #3a7bd5;
+}
+
+.createAccBtn {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  background-color: #3a7bd5;
+  color: white;
+  outline: none;
+  border: none;
+}
+
+.redirectText {
+  color: #4e5365;
+}
+
+@media only screen and (max-width: 576px) {
+  .formContainer {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+}
+
+@media only screen and (max-width: 992px) {
+}
+
+@media only screen and (max-width: 1200px) {
+}
+
+@media only screen and (min-width: 1201px) {
+}

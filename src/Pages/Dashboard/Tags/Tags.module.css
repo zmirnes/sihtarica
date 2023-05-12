@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.btnContainer {
+  position: fixed;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addBtn {
+  width: 4rem;
+  height: 2rem;
+}

@@ -1,0 +1,32 @@
+.modal {
+  position: absolute;
+  width: 100%;
+  padding: 1rem;
+  transition: 300ms;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalClosed {
+  transform: translateX(100%);
+}
+
+.inputs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.inputs input {
+  max-width: 4rem;
+}
+
+.actions {
+  height: 100%;
+  display: flex;
+  gap: 0.3rem;
+}
+
+.actions button {
+  display: block;
+  width: 2rem;
+}
