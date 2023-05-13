@@ -8,7 +8,7 @@ import tagsIcon from "../../assets/tagsIcon.svg";
 
 const mainMenuLinks = [
   { name: "Home", path: "./", desc: "View your data, add tracks or more..", icon: dashboardIcon },
-  { name: "Profile", path: "profile", desc: "Edit your profile data.", icon: profileIcon },
+  { name: "Account", path: "account", desc: "Edit your profile data.", icon: profileIcon },
   { name: "Tags", path: "tags", desc: "View or edit your tags..", icon: tagsIcon },
 ];
 

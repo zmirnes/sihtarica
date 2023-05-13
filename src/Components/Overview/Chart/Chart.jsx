@@ -41,16 +41,24 @@ const Chart = ({ year }) => {
         .reduce((curr, prev) => +prev + +curr, 0);
     });
 
-  console.log(earningPerMonth);
+  // Funkcija koja trazi najvecu vrijednost u zaradi(potrebno za Recharts -.- )
+
+  const getHighestEarning = () => {
+    let highestEarning = 0;
+    earningPerMonth.forEach((month) => {
+      if (+month.earning > +highestEarning) highestEarning = +month.earning;
+    });
+    return highestEarning;
+  };
 
   return (
     <div className={classes.container}>
-      <ResponsiveContainer>
-        <AreaChart data={earningPerMonth} margin={{ top: 30, bottom: 20, left: 0, right: 30 }} height={90}>
+      <ResponsiveContainer height={300}>
+        <AreaChart data={earningPerMonth} margin={{ top: 30, bottom: 20, left: 0, right: 30 }} height={300}>
           <Tooltip />
           <CartesianGrid strokeDasharray="3 3"></CartesianGrid>
-          <XAxis dataKey="name" />
-          <YAxis dataKey="earning" />
+          <XAxis dataKey="name" domain={["auto", "auto"]} />
+          <YAxis dataKey="earning" domain={["auto", getHighestEarning()]} />
           <Area type="monotone" dataKey="earning" stroke="#2886FF" fill="#2886FF" />
           <Area type="monotone" dataKey="hours" stroke="#8CC3A2" fill="#8CC3A2" />
         </AreaChart>
