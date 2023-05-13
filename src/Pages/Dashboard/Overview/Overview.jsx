@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import classes from "./Overview.module.css";
 import Calendar from "../../../Components/Overview/Calendar/Calendar";
 import Summary from "../../../Components/Overview/Summary/Summary";
+import Chart from "../../../Components/Overview/Chart/Chart";
 
 const Overview = () => {
   const [selectedDate, setSelectedDate] = useState();
@@ -14,8 +15,13 @@ const Overview = () => {
           View or edit your records. If you need any help visit <a href="/help">Help Desk.</a>
         </span>
       </div>
-      <Calendar setSelectedDate={setSelectedDate} />
-      {selectedDate && <Summary selectedDate={selectedDate} />}
+      <div className={classes.overview}>
+        <Calendar setSelectedDate={setSelectedDate} />
+        <div className={classes.leftSide}>
+          {selectedDate && <Summary selectedDate={selectedDate} />}
+          <Chart year={selectedDate && selectedDate.year} />
+        </div>
+      </div>
     </div>
   );
 };

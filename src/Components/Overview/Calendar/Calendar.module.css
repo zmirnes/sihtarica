@@ -1,13 +1,15 @@
 .container {
-  min-width: 45%;
+  flex-grow: 1;
   position: relative;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #eeeeee;
-  /* width: min-content; */
+  min-width: min-content;
+  height: 100%;
   overflow: hidden;
+  background-color: white;
 }
 
 .calendarHeader {
@@ -16,6 +18,7 @@
   position: relative;
   height: 4rem;
   border-bottom: 1px solid #eeeeee;
+  background-color: white;
 }
 
 .calendar {
@@ -44,7 +47,7 @@
 }
 
 .today {
-  background-color: #ff6961;
+  background-color: #2986ff;
   color: white;
 }
 
