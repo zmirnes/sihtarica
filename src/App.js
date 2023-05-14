@@ -9,7 +9,9 @@ import NotFound from './Pages/Not Found/NotFound'
 import Overview from './Pages/Dashboard/Overview/Overview'
 import Tags from './Pages/Dashboard/Tags/Tags'
 import Account from './Pages/Dashboard/Account/Account'
-import Profile from './Components/Account/Profile'
+import Profile from './Components/Account/Profile/Profile'
+import Security from './Components/Account/Security/Security'
+import DeleteAccount from './Components/Account/Delete Account/DeleteAccount'
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
         <Route path='account' exact element={<Account />} >
           <Route path="" exact element={<Profile />} />
           <Route path="profile" exact element={<Profile />} />
+          <Route path="security" exact element={<Security />} />
+          <Route path="delete" exact element={<DeleteAccount />} />
         </Route>
       </Route>
       <Route path="*" element={<NotFound />} />

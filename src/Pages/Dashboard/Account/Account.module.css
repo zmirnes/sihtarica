@@ -27,6 +27,21 @@
   border-right: 1px solid #d5d5d5;
 }
 
+.activeNavLink {
+  background-color: #2886ff;
+  color: white;
+  border-radius: 5px;
+  padding: 0.3rem;
+}
+
+.navLink {
+  border-radius: 5px;
+  padding: 0.3rem;
+}
+
+.activeDeleteLink {
+  background-color: #ffb6c1;
+}
 .openedTab {
   padding: 2rem 1rem 3rem 1rem;
   width: 100%;

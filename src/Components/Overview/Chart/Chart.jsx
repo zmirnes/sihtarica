@@ -5,7 +5,6 @@ import GlobalContext from "../../../Contexts/GlobalContext";
 
 const Chart = ({ year }) => {
   const { users, loggedUser } = useContext(GlobalContext);
-  const date = new Date();
   const [selectedYear, setSelectedYear] = useState(year);
   const userData = users.length > 0 && users.find((user) => user.id === loggedUser).data;
   const userHours = userData && userData.hours;

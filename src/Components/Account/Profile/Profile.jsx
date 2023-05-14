@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Profile.module.css";
-import profileImage from "./../../assets/profileImage.avif";
-import editIcon from "../../assets/editIcon.svg";
+import profileImage from "./../../../assets/profileImage.png";
+import editIcon from "../../../assets/editIcon.svg";
 
 const MyProfile = () => {
   return (
