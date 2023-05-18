@@ -25,10 +25,10 @@ const Tag = ({ tag, setPickedTag, setShowForm }) => {
         <span>{tag.rate}</span>
       </div>
       <div className={classes.actions}>
-        <button disabled={tag.tagName === "Default"} onClick={onEdit}>
+        <button disabled={tag.tagName === "Default"} onClick={onEdit} className={classes.editBtn}>
           Edit
         </button>
-        <button disabled={tag.tagName === "Default"} onClick={onDelete}>
+        <button disabled={tag.tagName === "Default"} onClick={onDelete} className={classes.deleteBtn}>
           Delete
         </button>
       </div>

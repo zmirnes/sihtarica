@@ -29,7 +29,7 @@ export const GlobalContextProvider = ({ children }) => {
     localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
   }, [loggedUser]);
 
-  const addUser = (fullName, email, password) => {
+  const addUser = (firstName, lastName, phone, company, position, email, password) => {
     const id = uid();
     set(ref(db, `/users/${id}/`), {
       id: id,
@@ -37,7 +37,11 @@ export const GlobalContextProvider = ({ children }) => {
         hours: { year: { month: { day: { hours: 0, tagID: "default" } } } },
         tags: { default: { id: id, tagName: "Default", rate: 0, color: "transparent" } },
       },
-      fullName,
+      firstName,
+      lastName,
+      phone,
+      company,
+      position,
       email,
       password,
     });
@@ -48,7 +52,7 @@ export const GlobalContextProvider = ({ children }) => {
     if (users.some((user) => user.email === email && user.password === password)) {
       const user = users.find((user) => user.email === email && user.password === password);
       setLoggedUser(user.id);
-      navigate("/dashboard");
+      navigate("/dashboard/");
     } else {
       throw new Error("Password does not match!");
     }
@@ -97,8 +101,19 @@ export const GlobalContextProvider = ({ children }) => {
     });
   };
 
+  const changePassword = (newPassword) => {
+    set(ref(db, `/users/${loggedUser}/password`), newPassword);
+  };
+
+  const deleteAccount = () => {
+    signOutUser();
+    remove(ref(db, `users/${loggedUser}`));
+  };
+
   return (
-    <GlobalContext.Provider value={{ addUser, signInUser, signOutUser, users, loggedUser, onEdit, addTag, deleteTag, editTag, deleteRecord, editProfileInfo }}>
+    <GlobalContext.Provider
+      value={{ addUser, signInUser, signOutUser, users, loggedUser, onEdit, addTag, deleteTag, editTag, deleteRecord, editProfileInfo, changePassword, deleteAccount }}
+    >
       {children}
     </GlobalContext.Provider>
   );

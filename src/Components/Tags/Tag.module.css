@@ -34,3 +34,17 @@
   justify-content: flex-end;
   gap: 1rem;
 }
+
+.editBtn {
+  background-color: #77dd77;
+  color: white;
+  border: none;
+  padding: 0.3rem 1rem;
+}
+
+.deleteBtn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.3rem 1rem;
+}
