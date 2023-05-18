@@ -91,8 +91,16 @@ export const GlobalContextProvider = ({ children }) => {
     remove(ref(db, `/users/${loggedUser}/data/hours/${year}/${month}/${day}`));
   };
 
+  const editProfileInfo = (data) => {
+    Object.entries(data).forEach(([key, value]) => {
+      set(ref(db, `/users/${loggedUser}/${key}`), value);
+    });
+  };
+
   return (
-    <GlobalContext.Provider value={{ addUser, signInUser, signOutUser, users, loggedUser, onEdit, addTag, deleteTag, editTag, deleteRecord }}>{children}</GlobalContext.Provider>
+    <GlobalContext.Provider value={{ addUser, signInUser, signOutUser, users, loggedUser, onEdit, addTag, deleteTag, editTag, deleteRecord, editProfileInfo }}>
+      {children}
+    </GlobalContext.Provider>
   );
 };
 

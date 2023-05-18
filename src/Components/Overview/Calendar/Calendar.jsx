@@ -7,7 +7,7 @@ import Loading from "../../Loading/Loading";
 
 const weekDays = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
-const Calendar = ({ setSelectedDate }) => {
+const Calendar = ({ setSelectedDate, setShowData }) => {
   const { users, loggedUser, deleteRecord } = useContext(GlobalContext);
   const userData = users.find((user) => user.id === loggedUser);
   const date = new Date();
@@ -31,7 +31,8 @@ const Calendar = ({ setSelectedDate }) => {
 
   useEffect(() => {
     setSelectedDate({ month: currMonth, year: currYear });
-  }, [currMonth, currYear, setSelectedDate]);
+    userData && setShowData(true);
+  }, [currMonth, currYear, setSelectedDate, setShowData, userData]);
 
   ///////////////////////////////////////////////
 

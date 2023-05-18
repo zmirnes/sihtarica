@@ -1,91 +1,53 @@
-import React from "react";
+import React, { useContext } from "react";
 import classes from "./Profile.module.css";
-import profileImage from "./../../../assets/profileImage.png";
-import editIcon from "../../../assets/editIcon.svg";
+import GlobalContext from "../../../Contexts/GlobalContext";
+import Loading from "../../Loading/Loading";
 
-const MyProfile = () => {
-  return (
+const Profile = () => {
+  const { users, loggedUser } = useContext(GlobalContext);
+
+  const user = users && users.find((user) => user.id === loggedUser);
+
+  return user ? (
     <div className={classes.container}>
-      <span className={classes.title}>My Profile</span>
-
-      {/* Basic info */}
-
-      <div className={classes.basicInfo}>
-        <div className={classes.profileImageContainer}>
-          <img src={profileImage} alt="Profile" />
-        </div>
-        <div className={classes.info}>
-          <span className={classes.name}>Mirnes Zahirović</span>
-          <span className={classes.position}>FE Developer</span>
-          <span className={classes.company}>Herceg d.o.o, Srebrenik</span>
-        </div>
-        <div className={classes.actions}>
-          <button className={classes.editBtn}>
-            <span>Edit</span>
-            <img src={editIcon} alt="Edit" className={classes.editBtnIcon} />
-          </button>
-        </div>
+      <span className={classes.title}>My profile</span>
+      <div className={classes.editBtnContainer}>
+        <button>Edit</button>
       </div>
-
-      {/* Personal informations */}
-
-      <div className={classes.personalInformations}>
-        <div className={classes.infosContainer}>
-          <div className={classes.info}>
-            <span className={classes.infoTitle}>First Name</span>
-            <span className={classes.infoValue}>Mirnes</span>
-          </div>
-          <div className={classes.info}>
-            <span className={classes.infoTitle}>Last Name</span>
-            <span className={classes.infoValue}>Zahirović</span>
-          </div>
-          <div className={classes.info}>
-            <span className={classes.infoTitle}>Email adress</span>
-            <span className={classes.infoValue}>zmirnes33@gmail.com</span>
-          </div>
-          <div className={classes.info}>
-            <span className={classes.infoTitle}>Phone</span>
-            <span className={classes.infoValue}>+387 61 013 188</span>
-          </div>
+      <form className={classes.form}>
+        <div className={classes.inputBlock}>
+          <label>First Name</label>
+          <input type="text" defaultValue={user.firstName} />
         </div>
-        <div className={classes.actions}>
-          <button className={classes.editBtn}>
-            <span>Edit</span>
-            <img src={editIcon} alt="Edit" className={classes.editBtnIcon} />
-          </button>
+        <div className={classes.inputBlock}>
+          <label>Last Name</label>
+          <input type="text" defaultValue={user.lastName} />
         </div>
-      </div>
-
-      {/* Adress */}
-
-      <div className={classes.adressInformations}>
-        <div className={classes.infos}>
-          <div className={classes.info}>
-            <span className={classes.infoTitle}>Country</span>
-            <span className={classes.infoValue}>Bosnia and Herzegovina</span>
-          </div>
-          <div className={classes.info}>
-            <span className={classes.infoTitle}>State</span>
-            <span className={classes.infoValue}>Federacija BiH</span>
-          </div>
-          <div className={classes.info}>
-            <span className={classes.infoTitle}>City</span>
-            <span className={classes.infoValue}>Srebrenik</span>
-          </div>
-          <div className={classes.info}>
-            <span className={classes.infoTitle}>Postal code</span>
-            <span className={classes.infoValue}>75350</span>
-          </div>
+        <div className={classes.inputBlock}>
+          <label>Email</label>
+          <input type="text" defaultValue={user.email} />
         </div>
-        <div className={classes.actions}>
-          <button className={classes.editBtn}>
-            <span>Edit</span>
-            <img src={editIcon} alt="Edit" className={classes.editBtnIcon} />
-          </button>
+        <div className={classes.inputBlock}>
+          <label>Phone</label>
+          <input type="text" defaultValue={user.phone} />
         </div>
-      </div>
+        <div className={classes.inputBlock}>
+          <label>Company</label>
+          <input type="text" defaultValue={user.company} />
+        </div>
+        <div className={classes.inputBlock}>
+          <label>Position</label>
+          <input type="text" defaultValue={user.position} />
+        </div>
+        <div className={classes.formActions}>
+          <button>Save</button>
+          <button>Cancel</button>
+        </div>
+      </form>
     </div>
+  ) : (
+    <Loading />
   );
 };
 
-export default MyProfile;
+export default Profile;

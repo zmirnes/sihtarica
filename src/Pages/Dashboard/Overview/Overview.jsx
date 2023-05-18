@@ -6,6 +6,7 @@ import Chart from "../../../Components/Overview/Chart/Chart";
 
 const Overview = () => {
   const [selectedDate, setSelectedDate] = useState();
+  const [showData, setShowData] = useState(false);
 
   return (
     <div className={classes.container}>
@@ -16,11 +17,13 @@ const Overview = () => {
         </span>
       </div>
       <div className={classes.overview}>
-        <Calendar setSelectedDate={setSelectedDate} />
-        <div className={classes.leftSide}>
-          {selectedDate && <Summary selectedDate={selectedDate} />}
-          <Chart year={selectedDate && selectedDate.year} />
-        </div>
+        <Calendar setSelectedDate={setSelectedDate} setShowData={setShowData} />
+        {showData && (
+          <div className={classes.leftSide}>
+            {selectedDate && <Summary selectedDate={selectedDate} />}
+            <Chart year={selectedDate && selectedDate.year} />
+          </div>
+        )}
       </div>
     </div>
   );

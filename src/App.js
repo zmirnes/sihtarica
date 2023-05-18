@@ -12,12 +12,14 @@ import Account from './Pages/Dashboard/Account/Account'
 import Profile from './Components/Account/Profile/Profile'
 import Security from './Components/Account/Security/Security'
 import DeleteAccount from './Components/Account/Delete Account/DeleteAccount'
+import FillingInformations from './Pages/FillingInformations/FillingInformations'
 
 const App = () => {
   return (
     <Routes>
       <Route path="sign-up" exact element={<SignRedirect children={<SignUp />} />}/>
       <Route path="sign-in" exact element={<SignRedirect children={<SignIn />} />}/>
+      <Route path="fill-profile" exact element={<FillingInformations/>}/>
       <Route path="dashboard" exact element={<ProtectedRoute  children={<Dashboard/>} />}>
         <Route path='' exact element={<Overview />} />
         <Route path='tags' exact element={<Tags />} />
