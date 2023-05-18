@@ -38,7 +38,9 @@ const Profile = () => {
     <div className={classes.container}>
       <span className={classes.title}>My profile</span>
       <div className={classes.editBtnContainer}>
-        <button onClick={() => setdisableFields(false)}>Edit</button>
+        <button onClick={() => setdisableFields(false)} disabled={!disableField}>
+          Edit
+        </button>
       </div>
       <form className={classes.form}>
         <div className={classes.inputBlock}>

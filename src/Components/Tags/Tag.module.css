@@ -35,6 +35,11 @@
   gap: 1rem;
 }
 
+.actions button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .editBtn {
   background-color: #77dd77;
   color: white;

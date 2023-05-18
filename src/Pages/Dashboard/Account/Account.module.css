@@ -46,3 +46,25 @@
   padding: 2rem 1rem 3rem 1rem;
   width: 100%;
 }
+
+@media only screen and (max-width: 576px) {
+}
+
+@media only screen and (max-width: 768px) {
+  .myAccountContainer {
+    flex-direction: column;
+  }
+
+  .sideMenu {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+}
+@media only screen and (max-width: 1200px) {
+}
+
+@media only screen and (min-width: 1201px) {
+}

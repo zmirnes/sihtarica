@@ -24,6 +24,11 @@
   border-radius: 5px;
 }
 
+.editBtnContainer button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -66,4 +71,21 @@
 .cancelBtn {
   background-color: #ff6961;
   color: white;
+}
+
+@media only screen and (max-width: 576px) {
+}
+
+@media only screen and (max-width: 768px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+}
+@media only screen and (max-width: 1200px) {
+}
+
+@media only screen and (min-width: 1201px) {
 }
