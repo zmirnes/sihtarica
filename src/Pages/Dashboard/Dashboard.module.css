@@ -7,27 +7,54 @@
 .outlet {
   width: 100%;
   height: 100%;
-  padding: 1rem;
   overflow-y: scroll;
   /* overflow-x: hidden; */
   background-color: #f6f6f6;
 }
 
-@media only screen and (max-width: 576px) {
+/* RESPONSIVE BREAKPOINTS */
+
+/* Responsive for desktop and laptops */
+
+@media only screen and (min-width: 1920px) {
 }
 
+@media only screen and (max-width: 1920px) {
+}
+
+@media only screen and (max-width: 1920px) {
+}
+
+@media only screen and (max-width: 1440px) {
+}
+
+@media only screen and (max-width: 1280px) {
+}
+
+/* Responsive for tablets */
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
 @media only screen and (max-width: 768px) {
 }
 
-@media only screen and (max-width: 992px) {
-  .container {
-    flex-direction: column;
-    height: 100vh;
+/* Responsive for mobile phones */
+
+@media only screen and (max-width: 568px) {
+}
+@media only screen and (max-width: 414px) {
+}
+@media only screen and (max-width: 375px) {
+  .outlet {
+    padding: 0.5rem;
   }
 }
-
-@media only screen and (max-width: 1200px) {
-}
-
-@media only screen and (min-width: 1201px) {
+@media only screen and (max-width: 320px) {
+  .outlet {
+    padding: 0.2rem;
+  }
 }

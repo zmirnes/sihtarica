@@ -1,0 +1,124 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: #6e78ff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.wave {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.mainContent {
+  width: 90%;
+  margin: auto auto;
+  display: flex;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: white;
+  z-index: 99;
+  flex: 1;
+}
+
+.leftSide h1 {
+  text-align: center;
+}
+
+.leftSide p {
+  width: 80%;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.actionLinks {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.actionLink {
+  background-color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 5px;
+}
+
+.rightSide {
+  flex: 1;
+  z-index: 999;
+}
+
+.mockupImg {
+  max-width: 100%;
+  z-index: 100;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/* Responsive for desktop and laptops */
+
+@media only screen and (min-width: 1920px) {
+}
+
+@media only screen and (max-width: 1920px) {
+}
+
+@media only screen and (max-width: 1920px) {
+}
+
+@media only screen and (max-width: 1440px) {
+}
+
+@media only screen and (max-width: 1280px) {
+}
+
+/* Responsive for tablets */
+
+@media only screen and (max-width: 1024px) {
+}
+@media only screen and (max-width: 768px) {
+  .mainContent {
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .leftSide {
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .leftSide p {
+    text-align: center;
+  }
+
+  .actions {
+    margin-top: 2rem;
+  }
+}
+
+/* Responsive for mobile phones */
+
+@media only screen and (max-width: 568px) {
+}
+@media only screen and (max-width: 414px) {
+}
+@media only screen and (max-width: 375px) {
+}
+@media only screen and (max-width: 320px) {
+}

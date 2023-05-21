@@ -41,43 +41,79 @@
   width: 100%;
   border-radius: 0;
   outline: none;
-  border: 1px solid #3a7bd5;
+  border: 1px solid #6e78ff;
   transition: 100ms;
   font-size: 1rem;
+  border-radius: 5px;
 }
 
 .inputField:focus {
-  border-left: 2px solid #3a7bd5;
+  border-left: 2px solid #6e78ff;
 }
 
-.createAccBtn {
+.signInBtn {
   font-size: 1rem;
   padding: 0.5rem 1rem;
   margin-top: 1rem;
-  background-color: #3a7bd5;
+  background-color: #6e78ff;
   color: white;
   outline: none;
   border: none;
+  border-radius: 5px;
 }
 
 .redirectText {
   color: #4e5365;
 }
 
-@media only screen and (max-width: 576px) {
+/* RESPONSIVE BREAKPOINTS */
+
+/* Responsive for desktop and laptops */
+
+@media only screen and (min-width: 1920px) {
+  .formContainer {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 1920px) {
+  .formContainer {
+    width: 25%;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .formContainer {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+}
+
+/* Responsive for tablets */
+
+@media only screen and (max-width: 1024px) {
+  .formContainer {
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .formContainer {
+    width: 50%;
+  }
+}
+
+/* Responsive for mobile phones */
+
+@media only screen and (max-width: 568px) {
   .formContainer {
     width: 100%;
   }
 }
-
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 414px) {
 }
-
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 375px) {
 }
-
-@media only screen and (max-width: 1200px) {
-}
-
-@media only screen and (min-width: 1201px) {
+@media only screen and (max-width: 320px) {
 }

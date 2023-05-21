@@ -11,6 +11,8 @@ export const GlobalContextProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [loggedUser, setLoggedUser] = useState(JSON.parse(localStorage.getItem("loggedUser")));
   const navigate = useNavigate();
+  const [notificationVisible, setNotificationVisible] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState("Succesfully logged in");
 
   useEffect(() => {
     onValue(ref(db), (snapshot) => {
@@ -29,9 +31,9 @@ export const GlobalContextProvider = ({ children }) => {
     localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
   }, [loggedUser]);
 
-  const addUser = (firstName, lastName, phone, company, position, email, password) => {
+  const addUser = async (firstName, lastName, phone, company, position, email, password) => {
     const id = uid();
-    set(ref(db, `/users/${id}/`), {
+    await set(ref(db, `/users/${id}/`), {
       id: id,
       data: {
         hours: { year: { month: { day: { hours: 0, tagID: "default" } } } },
@@ -45,6 +47,8 @@ export const GlobalContextProvider = ({ children }) => {
       email,
       password,
     });
+    navigate("/sign-in");
+    showNotification("Registration complete. Please login.");
   };
 
   const signInUser = (email, password) => {
@@ -53,6 +57,7 @@ export const GlobalContextProvider = ({ children }) => {
       const user = users.find((user) => user.email === email && user.password === password);
       setLoggedUser(user.id);
       navigate("/dashboard/");
+      showNotification("Successfully logged in!");
     } else {
       throw new Error("Password does not match!");
     }
@@ -62,57 +67,91 @@ export const GlobalContextProvider = ({ children }) => {
     setLoggedUser(null);
   };
 
-  const onEdit = (day, month, year, tagID, hours) => {
-    set(ref(db, `/users/${loggedUser}/data/hours/${year}/${month}/${day}`), {
+  const onEdit = async (day, month, year, tagID, hours) => {
+    await set(ref(db, `/users/${loggedUser}/data/hours/${year}/${month}/${day}`), {
       hours: hours,
       tagID: tagID,
     });
+    showNotification("Record added.");
   };
 
-  const addTag = (tagName, rate, color) => {
+  const addTag = async (tagName, rate, color) => {
     const id = uid();
-    set(ref(db, `/users/${loggedUser}/data/tags/${id}`), {
+    await set(ref(db, `/users/${loggedUser}/data/tags/${id}`), {
       id,
       color,
       tagName,
       rate,
       created: new Date().getTime(),
     });
+    showNotification("New tag added.");
   };
-  const deleteTag = (id) => {
-    remove(ref(db, `/users/${loggedUser}/data/tags/${id}`));
+  const deleteTag = async (id) => {
+    await remove(ref(db, `/users/${loggedUser}/data/tags/${id}`));
+    showNotification("Tag deleted!");
   };
 
-  const editTag = (id, tagName, rate, color) => {
-    update(ref(db, `/users/${loggedUser}/data/tags/${id}`), {
+  const editTag = async (id, tagName, rate, color) => {
+    await update(ref(db, `/users/${loggedUser}/data/tags/${id}`), {
       color,
       tagName,
       rate,
     });
+    showNotification("Update successfull.");
   };
 
-  const deleteRecord = (year, month, day) => {
-    remove(ref(db, `/users/${loggedUser}/data/hours/${year}/${month}/${day}`));
+  const deleteRecord = async (year, month, day) => {
+    await remove(ref(db, `/users/${loggedUser}/data/hours/${year}/${month}/${day}`));
+    showNotification("Record deleted!");
   };
 
   const editProfileInfo = (data) => {
     Object.entries(data).forEach(([key, value]) => {
       set(ref(db, `/users/${loggedUser}/${key}`), value);
     });
+    showNotification("Update successfull.");
   };
 
-  const changePassword = (newPassword) => {
-    set(ref(db, `/users/${loggedUser}/password`), newPassword);
+  const changePassword = async (newPassword) => {
+    await set(ref(db, `/users/${loggedUser}/password`), newPassword);
+    signOutUser();
+    showNotification("Login with your new password.");
   };
 
   const deleteAccount = () => {
     signOutUser();
     remove(ref(db, `users/${loggedUser}`));
+    showNotification("User deleted!");
+  };
+
+  const showNotification = (message) => {
+    setNotificationMessage(message);
+    setNotificationVisible(true);
+    setTimeout(() => {
+      setNotificationVisible(false);
+    }, 2000);
   };
 
   return (
     <GlobalContext.Provider
-      value={{ addUser, signInUser, signOutUser, users, loggedUser, onEdit, addTag, deleteTag, editTag, deleteRecord, editProfileInfo, changePassword, deleteAccount }}
+      value={{
+        addUser,
+        signInUser,
+        signOutUser,
+        users,
+        loggedUser,
+        onEdit,
+        addTag,
+        deleteTag,
+        editTag,
+        deleteRecord,
+        editProfileInfo,
+        changePassword,
+        deleteAccount,
+        showNotification,
+        notificationMessage,
+        notificationVisible,
+      }}
     >
       {children}
     </GlobalContext.Provider>

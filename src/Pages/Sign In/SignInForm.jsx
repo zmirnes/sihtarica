@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import GlobalContext from "../../Contexts/GlobalContext";
 
 const SignInForm = () => {
-  const { signInUser } = useContext(GlobalContext);
+  const { signInUser, showNotification } = useContext(GlobalContext);
   const [errorMessage, setErrorMessage] = useState("");
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -13,6 +13,7 @@ const SignInForm = () => {
     e.preventDefault();
     try {
       signInUser(email, password);
+      showNotification("Succesfully logged in!");
     } catch (err) {
       setErrorMessage(err.message);
     }
@@ -28,7 +29,7 @@ const SignInForm = () => {
         <span className={classes.formError}>{errorMessage}</span>
         <input className={classes.inputField} type="email" placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} />
         <input className={classes.inputField} type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-        <button className={classes.createAccBtn}>Login</button>
+        <button className={classes.signInBtn}>Login</button>
       </form>
       <span className={classes.redirectText}>
         Don't have account? <br /> <NavLink to="/sign-up">Create new account</NavLink>.{" "}

@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 1rem;
 }
 
 .title {
@@ -28,7 +29,7 @@
 }
 
 .activeNavLink {
-  background-color: #2886ff;
+  background-color: #6e78ff;
   color: white;
   border-radius: 5px;
   padding: 0.3rem;
@@ -47,9 +48,29 @@
   width: 100%;
 }
 
-@media only screen and (max-width: 576px) {
+/* RESPONSIVE BREAKPOINTS */
+
+/* Responsive for desktop and laptops */
+
+@media only screen and (min-width: 1920px) {
 }
 
+@media only screen and (max-width: 1920px) {
+}
+
+@media only screen and (max-width: 1920px) {
+}
+
+@media only screen and (max-width: 1440px) {
+}
+
+@media only screen and (max-width: 1280px) {
+}
+
+/* Responsive for tablets */
+
+@media only screen and (max-width: 1024px) {
+}
 @media only screen and (max-width: 768px) {
   .myAccountContainer {
     flex-direction: column;
@@ -59,12 +80,63 @@
     display: flex;
     flex-direction: row;
   }
+
+  .navLink {
+    white-space: nowrap;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .activeDeleteLink {
+    padding: 0.3rem 0.5rem;
+    white-space: nowrap;
+  }
+
+  .activeNavLink {
+    padding: 0.3rem 0.5rem;
+    white-space: nowrap;
+  }
 }
 
-@media only screen and (max-width: 992px) {
-}
-@media only screen and (max-width: 1200px) {
-}
+/* Responsive for mobile phones */
 
-@media only screen and (min-width: 1201px) {
+@media only screen and (max-width: 568px) {
+}
+@media only screen and (max-width: 414px) {
+  .title {
+    font-size: 1.1rem;
+  }
+  .activeNavLink {
+    font-size: 0.9rem;
+  }
+
+  .sideMenu {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  .sideMenu::-webkit-scrollbar {
+    height: 5px;
+    width: 100%;
+  }
+
+  .sideMenu::-webkit-scrollbar-track {
+    background-color: white;
+  }
+
+  .sideMenu::-webkit-scrollbar-thumb {
+    background-color: #2886ff;
+    border-radius: 10px;
+  }
+
+  .navLink {
+    font-size: 0.9rem;
+  }
+
+  .activeDeleteLink {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 375px) {
+}
+@media only screen and (max-width: 320px) {
 }

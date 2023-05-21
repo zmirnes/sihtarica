@@ -3,11 +3,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins";
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
   text-decoration: none;
-  color: #3a7bd5;
+  color: #6e78ff;
 }
 
 button {

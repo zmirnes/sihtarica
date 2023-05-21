@@ -12,6 +12,7 @@
 }
 
 .form {
+  border-radius: 5px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -40,4 +41,22 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
+}
+
+.actions button {
+  padding: 0.3rem 1rem;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+
+.editBtn {
+  background-color: #6e78ff;
+}
+.addBtn {
+  background-color: #6e78ff;
+}
+
+.cancelBtn {
+  background-color: #ff7477;
 }

@@ -18,7 +18,7 @@
 .editBtnContainer button {
   padding: 0.3rem 1rem;
   font-size: 0.9rem;
-  background-color: #77dd77;
+  background-color: #6e78ff;
   color: white;
   border: none;
   border-radius: 5px;
@@ -64,7 +64,7 @@
 }
 
 .saveBtn {
-  background-color: #77dd77;
+  background-color: #6e78ff;
   color: white;
 }
 
@@ -77,9 +77,6 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .form {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media only screen and (max-width: 992px) {
@@ -88,4 +85,47 @@
 }
 
 @media only screen and (min-width: 1201px) {
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/* Responsive for desktop and laptops */
+
+@media only screen and (min-width: 1920px) {
+}
+
+@media only screen and (max-width: 1920px) {
+}
+
+@media only screen and (max-width: 1920px) {
+}
+
+@media only screen and (max-width: 1440px) {
+}
+
+@media only screen and (max-width: 1280px) {
+}
+
+/* Responsive for tablets */
+
+@media only screen and (max-width: 1024px) {
+}
+@media only screen and (max-width: 768px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive for mobile phones */
+
+@media only screen and (max-width: 568px) {
+}
+@media only screen and (max-width: 414px) {
+  .title {
+    font-size: 1.1rem;
+  }
+}
+@media only screen and (max-width: 375px) {
+}
+@media only screen and (max-width: 320px) {
 }

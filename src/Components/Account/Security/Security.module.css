@@ -24,11 +24,12 @@
   padding: 0.3rem 1rem;
   font-size: 0.9rem;
   white-space: nowrap;
-  background-color: #2886ff;
+  background-color: #6e78ff;
   color: white;
   font-weight: 500;
   border: none;
   margin-top: 1rem;
+  border-radius: 5px;
 }
 
 @media only screen and (max-width: 576px) {

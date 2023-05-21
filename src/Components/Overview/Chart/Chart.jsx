@@ -58,8 +58,8 @@ const Chart = ({ year }) => {
           <CartesianGrid strokeDasharray="3 3"></CartesianGrid>
           <XAxis dataKey="name" domain={["auto", "auto"]} />
           <YAxis dataKey="earning" domain={["auto", getHighestEarning()]} />
-          <Area type="monotone" dataKey="earning" stroke="#2886FF" fill="#2886FF" />
-          <Area type="monotone" dataKey="hours" stroke="#8CC3A2" fill="#8CC3A2" />
+          <Area type="monotone" dataKey="earning" stroke="#6e78ff" fill="#6e78ff" />
+          <Area type="monotone" dataKey="hours" stroke="#61f4de" fill="#61f4de" />
         </AreaChart>
       </ResponsiveContainer>
     </div>

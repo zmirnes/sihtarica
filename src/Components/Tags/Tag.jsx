@@ -15,7 +15,7 @@ const Tag = ({ tag, setPickedTag, setShowForm }) => {
   };
 
   return (
-    <div className={classes.tag} style={{ borderRight: `10px solid ${tag.color}` }}>
+    <div className={classes.tag} style={{ borderRight: `5px solid ${tag.color}` }}>
       <div className={classes.nameContainer}>
         <span className={classes.title}>Name:</span>
         <span>{tag.tagName}</span>

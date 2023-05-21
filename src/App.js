@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment, useContext } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import SignUp from './Pages/Sign Up/SignUp'
 import SignIn from './Pages/Sign In/SignIn'
@@ -12,14 +12,19 @@ import Account from './Pages/Dashboard/Account/Account'
 import Profile from './Components/Account/Profile/Profile'
 import Security from './Components/Account/Security/Security'
 import DeleteAccount from './Components/Account/Delete Account/DeleteAccount'
-import FillingInformations from './Pages/FillingInformations/FillingInformations'
+import GlobalContext from './Contexts/GlobalContext'
+import Message from './Components/Message/Message'
+import Landing from './Pages/Landing Page/Landing'
 
 const App = () => {
-  return (
+  const {notificationVisible, notificationMessage} = useContext(GlobalContext)
+
+  return <Fragment>
+    {notificationVisible && <Message message={notificationMessage} />}
     <Routes>
+      <Route path="/" exact element={<Landing />}/>
       <Route path="sign-up" exact element={<SignRedirect children={<SignUp />} />}/>
       <Route path="sign-in" exact element={<SignRedirect children={<SignIn />} />}/>
-      <Route path="fill-profile" exact element={<FillingInformations/>}/>
       <Route path="dashboard" exact element={<ProtectedRoute  children={<Dashboard/>} />}>
         <Route path='' exact element={<Overview />} />
         <Route path='tags' exact element={<Tags />} />
@@ -32,7 +37,7 @@ const App = () => {
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
-  )
+  </Fragment>
 }
 
 export default App

@@ -40,7 +40,7 @@
 }
 
 .activeNavLink {
-  background-color: #2986ff;
+  background-color: #6e78ff;
   color: white;
 }
 
@@ -54,7 +54,7 @@
   padding: 0.5rem;
   font-size: 0.9rem;
   font-weight: 500;
-  background-color: #2986ff;
+  background-color: #ff7477;
   color: white;
   border: none;
   border-radius: 5px;

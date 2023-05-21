@@ -49,8 +49,8 @@ const SignUpForm = () => {
         <span className={classes.formTitle}>Create New Account</span>
         <span className={classes.formSubtitle}>Register and join our community.</span>
       </div>
+      <span className={classes.formError}>{errorMessage}</span>
       <form className={classes.form} onSubmit={onSubmitHandler}>
-        <span className={classes.formError}>{errorMessage}</span>
         <input className={classes.inputField} type="text" placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />
         <input className={classes.inputField} type="text" placeholder="Last Name" onChange={(e) => setLasttName(e.target.value)} />
         <input className={classes.inputField} type="email" placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} />

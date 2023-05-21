@@ -37,9 +37,19 @@ const AddTag = ({ setShowForm, pickedTag, setPickedTag }) => {
           <option value="#f2e8cf">Yellow</option>
         </select>
         <div className={classes.actions}>
-          {!pickedTag && <button onClick={onAdd}>OK</button>}
-          {pickedTag && <button onClick={onEdit}>Edit</button>}
-          <button onClick={onClose}>Cancel</button>
+          {!pickedTag && (
+            <button onClick={onAdd} className={classes.addBtn}>
+              Add
+            </button>
+          )}
+          {pickedTag && (
+            <button onClick={onEdit} className={classes.editBtn}>
+              Edit
+            </button>
+          )}
+          <button onClick={onClose} className={classes.cancelBtn}>
+            Cancel
+          </button>
         </div>
       </div>
     </div>
