@@ -32,10 +32,6 @@
   flex: 1;
 }
 
-.leftSide h1 {
-  text-align: center;
-}
-
 .leftSide p {
   width: 80%;
 }
@@ -101,6 +97,10 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+  }
+
+  .leftSide h1 {
+    text-align: center;
   }
 
   .leftSide p {
