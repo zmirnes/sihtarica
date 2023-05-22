@@ -49,7 +49,6 @@ const Calendar = ({ setSelectedDate, setShowData }) => {
       if (!longPressExecuted && !preventInitial) {
         clearTimeout(timeoutID);
         setDisableModal(false);
-        console.log("Ponisteno");
       }
     }
 
@@ -63,9 +62,8 @@ const Calendar = ({ setSelectedDate, setShowData }) => {
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  const getBorderColor = async (year, month, day) => {
-    const getID = await (userData?.data.hours[year]?.[month]?.[day]?.tagID || "default");
-    console.log(getID);
+  const getBorderColor = (year, month, day) => {
+    const getID = userData?.data.hours[year]?.[month]?.[day]?.tagID || "default";
     const getColorCode = userData?.data?.tags?.[getID]?.color || "transparent";
     return getColorCode;
   };

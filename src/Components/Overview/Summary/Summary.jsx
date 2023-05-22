@@ -11,7 +11,6 @@ const Summary = ({ selectedDate }) => {
   const workedHours = {};
 
   userData && Object.values(userData).forEach((day) => (workedHours[day.tagID] = workedHours[day.tagID] ? workedHours[day.tagID] + +day.hours : 0 + +day.hours));
-  console.log(workedHours, userTags);
   return workedHours && userTags ? (
     <div className={classes.container}>
       <span className={classes.summaryTitle}>Summary of your records</span>
