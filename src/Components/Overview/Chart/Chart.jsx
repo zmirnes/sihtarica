@@ -31,7 +31,7 @@ const Chart = ({ year }) => {
   userHours[selectedYear] &&
     Object.entries(userHours[selectedYear]).forEach(([month, monthData]) => {
       earningPerMonth[month].earning = Object.values(monthData)
-        .map((day) => day.hours * userTags[day.tagID].rate)
+        .map((day) => day.hours * userTags[day.tagID]?.rate || userTags.default.rate)
         .reduce((curr, prev) => curr + prev, 0)
         .toFixed(0);
 
