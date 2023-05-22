@@ -6,7 +6,7 @@ const SignRedirect = ({ children }) => {
   const { loggedUser } = useContext(GlobalContext);
 
   if (loggedUser) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to="/dashboard/" replace />;
   } else {
     return children;
   }

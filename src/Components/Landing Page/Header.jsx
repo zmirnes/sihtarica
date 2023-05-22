@@ -4,12 +4,12 @@ import { NavLink } from "react-router-dom";
 
 const navLinks = [
   { to: "/", name: "Home" },
-  { to: "/help-desk", name: "Help Desk" },
+  { to: "/help-desk/", name: "Help Desk" },
 ];
 
 const actionLinks = [
-  { to: "/sign-in", name: "Sign In" },
-  { to: "/sign-up", name: "Create Account" },
+  { to: "/sign-in/", name: "Sign In" },
+  { to: "/sign-up/", name: "Create Account" },
 ];
 
 const Header = () => {
@@ -17,7 +17,7 @@ const Header = () => {
     <nav className={classes.nav}>
       <ul className={classes.leftList}>
         {navLinks.map((link) => (
-          <li className={classes.listItem}>
+          <li className={classes.listItem} key={link.name}>
             <NavLink to={link.to} className={({ isActive }) => (isActive ? classes.activeNavLink : classes.navLink)}>
               {link.name}
             </NavLink>
@@ -26,7 +26,7 @@ const Header = () => {
       </ul>
       <ul className={classes.actionLinks}>
         {actionLinks.map((link) => (
-          <li className={classes.listItem}>
+          <li className={classes.listItem} key={link.name}>
             <NavLink to={link.to} className={classes.actionLink}>
               {link.name}
             </NavLink>

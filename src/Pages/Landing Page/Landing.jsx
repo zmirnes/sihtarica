@@ -6,8 +6,8 @@ import mockup from "../../assets/mockup.png";
 import Header from "../../Components/Landing Page/Header";
 
 const actionLinks = [
-  { to: "/sign-in", name: "Sign In" },
-  { to: "/sign-up", name: "Create Account" },
+  { to: "/sign-in/", name: "Sign In" },
+  { to: "/sign-up/", name: "Create Account" },
 ];
 
 const Landing = () => {
@@ -20,7 +20,7 @@ const Landing = () => {
           <p>Create free account and easily track your work hours, add tags, and see estimated revanue.</p>
           <div className={classes.actions}>
             {actionLinks.map((link) => (
-              <NavLink to={link.to} className={classes.actionLink}>
+              <NavLink to={link.to} className={classes.actionLink} key={link.name}>
                 {link.name}
               </NavLink>
             ))}
