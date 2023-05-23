@@ -7,14 +7,11 @@ const SignUpForm = () => {
   const { addUser, users } = useContext(GlobalContext);
 
   const [errorMessage, setErrorMessage] = useState("");
-  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
 
   const validateFormInputs = () => {
-    if (userName.length < 3) throw new Error("Username must be at least 3 characther long.");
-    if (users.find((user) => user.userName === userName)) throw new Error("Username already exist.");
     if (!/\S+@\S+\.\S+/.test(email)) throw new Error("Email adress is not valid!");
     if (users.find((user) => user.email === email)) throw new Error("Email adress is already in use!");
     if (password < 6) throw new Error("Password must be at least 6 characters long.");
@@ -23,14 +20,14 @@ const SignUpForm = () => {
 
   useEffect(() => {
     setErrorMessage("");
-  }, [userName, email, password, repeatedPassword]);
+  }, [email, password, repeatedPassword]);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
     try {
       validateFormInputs();
-      addUser(userName, email, password);
+      addUser(email, password);
     } catch (err) {
       setErrorMessage(err.message);
     }
@@ -44,7 +41,6 @@ const SignUpForm = () => {
       </div>
       <span className={classes.formError}>{errorMessage}</span>
       <form className={classes.form} onSubmit={onSubmitHandler}>
-        <input type="text" className={classes.inputField} placeholder="Username" onChange={(e) => setUserName(e.target.value)} />
         <input className={classes.inputField} type="email" placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} />
         <input className={classes.inputField} type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
         <input className={classes.inputField} type="password" placeholder="Repeat Password" onChange={(e) => setRepeatedPassword(e.target.value)} />

@@ -17,7 +17,7 @@ const Landing = () => {
       <main className={classes.mainContent}>
         <div className={classes.leftSide}>
           <h1>Time is to track work hours!</h1>
-          <p>Create free account and easily track your work hours, add tags, and see estimated revanue.</p>
+          <p>Create free account and easily track your work hours, add tags, and see estimated revenue.</p>
           <div className={classes.actions}>
             {actionLinks.map((link) => (
               <NavLink to={link.to} className={classes.actionLink} key={link.name}>
