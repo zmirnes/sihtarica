@@ -31,7 +31,7 @@ export const GlobalContextProvider = ({ children }) => {
     localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
   }, [loggedUser]);
 
-  const addUser = async (firstName, lastName, phone, company, position, email, password) => {
+  const addUser = async (username, email, password) => {
     const id = uid();
     await set(ref(db, `/users/${id}/`), {
       id: id,
@@ -39,11 +39,7 @@ export const GlobalContextProvider = ({ children }) => {
         hours: { year: { month: { day: { hours: 0, tagID: "default" } } } },
         tags: { default: { id: id, tagName: "Default", rate: 0, color: "transparent" } },
       },
-      firstName,
-      lastName,
-      phone,
-      company,
-      position,
+      username,
       email,
       password,
     });
